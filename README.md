@@ -599,20 +599,20 @@ To access and manage your Nagios Server, follow these steps:
 To address this error, you might need to configure a swap partition or file on the Nagios server to ensure smooth operation.
 
 
-To fix the swap usage error by creating a 1GB swap file, follow these steps:
+To fix the swap usage error by creating a .5GB swap file, follow these steps:
 
 ### Step 18: Fixing Swap Usage Error
 
-1. **Create a 1GB Swap File:**
-   Use the `dd` command to create a swap file of size 1GB. This file will be located in the `/root` directory and named `myswapfile`:
+1. **Create a .5GB Swap File:**
+   Use the `dd` command to create a swap file of size .5GB. This file will be located in the `/root` directory and named `myswapfile`:
    ```bash
-   sudo dd if=/dev/zero of=/root/myswapfile bs=1M count=1024
+   sudo dd if=/dev/zero of=/root/myswapfile bs=1M count=512
    ```
 
    - **`if=/dev/zero`**: Input file is `/dev/zero`, which provides a stream of zeroes.
    - **`of=/root/myswapfile`**: Output file where the swap data will be written.
    - **`bs=1M`**: Block size of 1 megabyte.
-   - **`count=1024`**: Number of blocks (1024 blocks of 1MB each make up 1GB).
+   - **`count=1024`**: Number of blocks (1024 blocks of 1MB each make up .5GB).
 
 2. **Set Up the Swap File:**
    After creating the swap file, you need to format it as swap space:
@@ -644,7 +644,7 @@ To fix the swap usage error by creating a 1GB swap file, follow these steps:
    free -h
    ```
 
-By following these steps, you will create and configure a 1GB swap file, which should resolve the swap usage error in Nagios.
+By following these steps, you will create and configure a .5GB swap file, which should resolve the swap usage error in Nagios.
 
 
 To check and change the permissions for the swap file, follow these steps:
